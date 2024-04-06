@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "3.540.0"
+  }
 }

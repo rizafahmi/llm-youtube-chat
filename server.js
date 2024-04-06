@@ -1,8 +1,38 @@
 import http from 'http';
+import { fileURLToPath } from "url";
 
-async function invoke(chat) {
-  console.log(chat);
-  return 'Hello from LLM';
+import {
+  BedrockRuntimeClient,
+  InvokeModelCommand
+} from "@aws-sdk/client-bedrock-runtime";
+
+async function invoke(prompt, modelId = "anthropic.claude-3-haiku-20240307-v1:0") {
+  const client = new BedrockRuntimeClient({ region: "us-east-1" });
+
+  const payload = {
+    anthropic_version: "bedrock-2023-05-31",
+    max_tokens: 1000,
+    messages: [
+      {
+        role: "user",
+        content: [{ type: "text", text: prompt }],
+      },
+    ],
+  };
+
+  const command = new InvokeModelCommand({
+    contentType: "application/json",
+    body: JSON.stringify(payload),
+    modelId,
+  });
+  const apiResponse = await client.send(command);
+
+  // Decode and return the response(s)
+  const decodedResponseBody = new TextDecoder().decode(apiResponse.body);
+
+  const responseBody = JSON.parse(decodedResponseBody);
+  return responseBody.content[0].text;
+
 }
 
 async function handler(req, res) {
