@@ -2,7 +2,6 @@ import { invoke } from "./llm.js";
 
 Bun.serve({
   async fetch(req: Request) {
-    console.log(req);
     const { url } = req;
     console.log(`Handling ${url}...`);
     const parsedUrl = new URL(url);
