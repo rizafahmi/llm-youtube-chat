@@ -2,7 +2,6 @@
   "name": "bedrock-youtube-chat",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "node --watch server.js"
   },
@@ -12,5 +11,11 @@
   "type": "module",
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "3.540.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "5.0.0"
   }
 }

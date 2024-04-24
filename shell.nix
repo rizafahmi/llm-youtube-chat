@@ -3,7 +3,7 @@ let
   basePackages = [
     nodejs_20
     awscli2
-    deno
+    bun
   ];
 in
   pkgs.mkShellNoCC {
