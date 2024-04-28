@@ -3,7 +3,7 @@ import {
   InvokeModelCommand
 } from "@aws-sdk/client-bedrock-runtime";
 
-export async function invoke(prompt: string, modelId: string = "anthropic.claude-3-haiku-20240307-v1:0") {
+export async function invoke(prompt: string, modelId: string = "anthropic.claude-3-haiku-20240307-v1:0"): Promise<string> {
   const client = new BedrockRuntimeClient({ region: "us-east-1" });
 
   const payload = {
