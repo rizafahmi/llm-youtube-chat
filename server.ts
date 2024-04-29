@@ -1,4 +1,4 @@
-import { invoke } from "./bedrock.ts";
+import { invoke } from "./feedloop.ts";
 
 Bun.serve({
   async fetch(req: Request) {
