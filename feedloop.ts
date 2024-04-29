@@ -16,7 +16,7 @@ function historyToString(history: Message[]): string {
 
 export async function invoke(prompt: string): Promise<string> {
 
-  const URL = "https://models.feedloop.ai/api/v1/chat/completions";
+  const URL = "https://model.feedloop.ai/api/v1/chat/completions";
 
   const messages = [{
     role: "system",
@@ -50,6 +50,6 @@ export async function invoke(prompt: string): Promise<string> {
   HISTORY.push({ role: "user", content: prompt });
   HISTORY.push({ role: "assistant", content });
 
-  return content || "";
+  return content;
 
 }
