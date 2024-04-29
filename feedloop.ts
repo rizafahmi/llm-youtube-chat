@@ -29,7 +29,7 @@ export async function invoke(prompt: string): Promise<string> {
   console.log(messages);
 
   const payload = {
-    model: "fl1ix",
+    model: "fl2chat",
     max_tokens: 200,
     temperature: 0,
     stream: false,
