@@ -4,7 +4,12 @@ import {
 } from "@aws-sdk/client-bedrock-runtime";
 
 export async function invoke(prompt: string, modelId: string = "anthropic.claude-3-haiku-20240307-v1:0"): Promise<string> {
-  const client = new BedrockRuntimeClient({ region: "us-east-1" });
+  const client = new BedrockRuntimeClient({
+    region: "us-east-1", credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    }
+  });
 
   const payload = {
     anthropic_version: "bedrock-2023-05-31",

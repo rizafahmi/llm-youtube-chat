@@ -10,7 +10,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "@aws-sdk/client-bedrock-runtime": "3.540.0"
+    "@aws-sdk/client-bedrock-runtime": "^3.564.0"
   },
   "devDependencies": {
     "@types/bun": "latest"
